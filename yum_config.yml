@@ -13,13 +13,13 @@
 
           - yum_repository:
                   baseurl: "file:///dvd1/AppStream"
-                  name: "akshaydvd1"
+                  name: "dvd1"
                   description: " my yum dvd1 for package"
                   gpgcheck: no
 
           - yum_repository:
                   baseurl: "file:///dvd1/BaseOS"
-                  name: "akshaydvd2"
+                  name: "dvd2"
                   description: " my yum dvd2 for package"
                   gpgcheck: no
 
