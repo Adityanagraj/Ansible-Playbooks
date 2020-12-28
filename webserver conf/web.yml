@@ -1,8 +1,8 @@
 - hosts: all
   tasks:
     - package:
-        name: httpd
-        state: present
+       name: httpd
+       state: present
     - copy:
        src: /index.html
        dest: /var/www/html
