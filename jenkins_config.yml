@@ -23,7 +23,7 @@
        state: present
        
        
-   - name: installing jenkins software
+   - name: installing jenkins software   #it takes some time while downloading jenkins be Subtle
      yum:
        name: jenkins
        state: present
