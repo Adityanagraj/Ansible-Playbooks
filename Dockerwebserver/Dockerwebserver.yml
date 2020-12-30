@@ -1,0 +1,18 @@
+- hosts: all
+  tasks:
+    - name: Creating folder and copying html file...
+      file:
+        path: /webpages
+        state: directory
+    - name: Copying html files
+      copy:
+        src: "kumar.html"
+        dest: "/webpages/"
+   - name: Creating container using HTTPD Image 
+    docker_container:
+        name: MyWebServer
+        image: httpd
+        state: started
+        exposed_ports: "80"
+        ports: "8888:80"
+        volumes: /webpages:/usr/local/apache2/htdocs/
