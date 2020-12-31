@@ -1,0 +1,31 @@
+- hosts: lb
+  tasks:
+    - name: "installing software"
+      package:
+        name: haproxy
+        state: present
+
+
+    - name: "configuring haproxy.conf file"
+      template:
+        dest: "/etc/haproxy/haproxy.cfg"
+        src:  "/etc/haproxy/haproxy.cfg"
+
+    - name: "starting the load balancer service"
+      service:
+        name: "haproxy"
+        state: restarted
+ 
+ 
+- hosts: websites
+  tasks:
+    - name: "installing software"
+      package:
+        name: httpd
+        state: present
+
+
+    - name: "starting the service"
+      service:
+        name: httpd
+        state: started
