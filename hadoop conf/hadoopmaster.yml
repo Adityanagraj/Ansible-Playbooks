@@ -1,0 +1,43 @@
+- hosts: hadoopmaster
+  tasks:
+    - name: "Installing jdk and Hadoop in remote System"
+      command: rpm -i {{ item }}
+      ignore_errors: yes
+      loop:
+        - jdk-8u171-linux-x64.rpm
+        - hadoop-1.2.1-1.x86_64.rpm --force
+
+
+    - name: "creating remoting directory"
+      file:
+        dest: /n1
+        state: directory
+
+    - name: "configuring hdfs file"
+      ansible.builtin.replace:
+         path: /etc/hadoop/hdfs-site.xml
+         regexp: </configuration>
+         replace: "<property>
+           \n<name>dfs.name.dir</name>
+           \n<value>/n1</value>
+           \n</property>
+           \n</configuration>"
+
+
+
+    - name: "configuring core file"
+      ansible.builtin.replace:
+         path: /etc/hadoop/core-site.xml
+         regexp: </configuration>
+         replace: "<property>
+           \n<name>fs.default.name</name>
+           \n<value>hdfs://192.168.43.209:9000</value>
+           \n</property>
+           \n</configuration>"
+
+    - name: "formating namenode"
+      command: hadoop namenode -format -force
+
+
+    - name: "starting the services"
+      command: hadoop-daemon.sh start namenode

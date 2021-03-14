@@ -1,0 +1,38 @@
+- hosts: 192.168.43.148
+  tasks:
+    - name: "Installing jdk and hadoop software"
+      command: rpm -i {{ item }}
+      ignore_errors: yes
+      loop:
+          - jdk-8u171-linux-x64.rpm
+          - hadoop-1.2.1-1.x86_64.rpm --force
+   
+    - name: "Creating the datanode folder"
+      file:
+        dest: /n2
+        state: directory
+  
+   # - name: "configuring the hdfs-site.xml file"
+   #  ansible.builtin.replace:
+   #     path: /etc/hadoop/hdfs-site.xml
+   #      regexp: </configuration>
+   #      replace: <property>
+   #       \n<name>dfs.name.dir</name>
+   #       \n<value>/n2</value>
+   #       \n</property>
+   #       \n</configuration>
+             
+  #  - name: "configuring the Core-site.xml"
+  #   ansible.builtin.replace:
+  #       path: /etc/hadoop/core-site.xml
+  #       regexp: </configuration>
+  #       replace: "<property>
+  #       \n<name>fs.default.name</name>
+  #       \n<value>hdfs://192.168.43.90:9002</value>
+  #       \n</property>
+  #       \n</configuration>"
+  
+
+    - name: "start the Services"
+      command: hadoop-daemon.sh start datanode
+      ignore_errors: yes
