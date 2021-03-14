@@ -3,9 +3,9 @@
     - name: "Installing jdk and Hadoop in remote System"
       command: rpm -i {{ item }}
       ignore_errors: yes
-      loop:
-        - jdk-8u171-linux-x64.rpm
-        - hadoop-1.2.1-1.x86_64.rpm --force
+      loop: 
+        - jdk-8u171-linux-x64.rpm                 # we can download jdk software package from internet
+        - hadoop-1.2.1-1.x86_64.rpm --force       # we can download hadoop software package from internet
 
 
     - name: "creating remoting directory"
