@@ -8,9 +8,9 @@
        key_name: awseducate
        name: ansible_launched_os
        state: present
-       aws_access_key: ASIAVELQ63BIFK7HKR7P
-       aws_secret_key: SSj1GL5ZIJkZDL/CJ/3UgtgXRVKBGMMRy7VC8IeB
-       aws_security_token: IQoJb3JpZ2luX2VjEEkaCXVzLXdlc3QtMiJHMEUCIHFmts8Amv7NA4XG7TpXNkTZd44uezaqCD8SzZCQ8sxfAiEArNYFRP2zH9Ijqqh4EA9JgnQOK1A2PXIkzC7SGH+tVBoqvAIIov//////////ARABGgwzNTI5NjEwOTE2NjQiDCLUkmyOZXCssBrBySqQArxsE+rLZfazP3r5GDTedMj4NLFtTvPSVKN7SjAG3W9O8+H+AP8eTrC8IV3t3MjfSiRv3dXdlbsk8C1zYLuJ81zX9/E85LVxPDBiWCur3AnGifAjsclkWCcXgWZ0WSWxdXVKFtEQ9RDx7GBazui5+rQwLJDn8GhZQ+w8u/NIAOuFEIvRos1f0TUYKJWwTq9bP2tep8G75jS0T8LvcXtq8xWI7DbDkhE6i9J/JB7zYs+nvu3W2TtnmDKjMbdj5Eik914szA9if8f1exb8QSozUwp302a5TRBySQ8kZOvmqycAADYp51IkiP1Zc9mwrYwxoDWoHEQlI3HEAKIqPBq3XPJzVqPAYH6078J4RKQgvWunMLD1yoMGOp0BNlu4sjUJab0MyD3kE058vDcRUQBRjoL89fRXdAvoEtbxoLUTFcSd98j72kG3d55K6qhzNS2zDxEHxjrXLFOzCmYV+9eHNeis23y506m+VOjrllubhP9RCZ6Bi4fw7uNXKbOPJKAb63sl6Fhx98JOvrcOh6in2e8FUFQhZvuTlcPDc6HdS92ELWwAQreTvth2iyO70+QmdtQJC1xZXw==
+       aws_access_key: #Add your Access key
+       aws_secret_key: # Add your Secret Key
+       aws_security_token: # Add your Security Token
      register: x
    - debug:
        var:  x
